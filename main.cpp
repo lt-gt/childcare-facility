@@ -16,49 +16,32 @@ int main() {
     
     cout << "Welcome to our SCC Childcare Facility!" << endl;
     
-    // Loop to verify correct choice
+    // Loop Menu
     do {
         displayOptions(choicePtr);
-        
-        switch (choice) {
+
+        switch (toupper(choice)) {
             case 'R':
-            case 'r':
+                cout << "Chose R" << endl;
+                break;
             case 'C':
-            case 'c':
+                cout << "Chose C" << endl;
+                break;
             case 'S':
-            case 's':
+                cout << "Chose S" << endl;
+                break;
             case 'E':
-            case 'e':
+                cout << "Chose E" << endl;
                 i = -1;
                 break;
                 
             default:
-                i = 0;
+                cout << "Invalid choice, try again" << endl;
                 break;
         }
+    
+        } while (i != -1);
         
-    } while (i != -1);
-    
-    // Menu
-    switch (choice) {
-        case 'R':
-        case 'r':
-            cout << "Chose R" << endl;
-            break;
-        case 'C':
-        case 'c':
-            cout << "Chose C" << endl;
-            break;
-        case 'S':
-        case 's':
-            cout << "Chose S" << endl;
-            break;
-            
-        default:
-            cout << "Chose E" << endl;
-            break;
-    }
-    
     return 0;
 }
 
