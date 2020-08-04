@@ -38,6 +38,7 @@ public:
 class Child : public Parent {
 private:
     string name;
+    string ID;
     string medications;
     string allergies;
 
@@ -54,4 +55,20 @@ public:
     
 };
 
+class HoursofChild : public Child {
+private:
+    int shift;
+    double hourlyPay;
+
+public:
+   HoursOfChild(): Child()
+   {
+       shift = 0;
+       hourlyPay = 0.0;
+   }
+HoursOfChild(string childName, childID, int childShift, double childPayment) : Child(name, ID)
+{
+    shift = childShift;
+    hourlyPay = childPayment;
+}
 #endif

@@ -91,3 +91,35 @@ void Child::displayInfo() {
     << "Medications: " << medications << endl;
     
 }
+
+void HoursOfChild::setShift (int s)
+{
+    shift = s;
+}
+
+void HoursOfChild::setPay(double p)
+{
+    hourlyPay = p
+}
+
+int HoursOfChild::getShiftNum() const
+{
+    return shift;
+}
+
+string HoursOfChild::getShiftName() const
+{
+    if (shift == 1) //shift1: 8am-12pm
+        return "Morning";
+    else if (shift == 2) //shift2: 12pm-4om
+        return "Afternoon";
+    else 
+        return "Invalid";
+}
+
+double HoursOfChild::getPay() const
+{
+    return hourlyPay;
+}
+
+      
