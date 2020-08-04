@@ -111,5 +111,15 @@ string HoursOfChild::getShiftName() const
 {
     if (shift == 1) //shift1: 8am-12pm
         return "Morning";
-    else if 
+    else if (shift == 2) //shift2: 12pm-4om
+        return "Afternoon";
+    else 
+        return "Invalid";
+}
+
+double HoursOfChild::getPay() const
+{
+    return hourlyPay;
+}
+
       
