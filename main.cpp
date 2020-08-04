@@ -1,6 +1,7 @@
 // main.cpp
 //
 
+#include <stdlib.h>
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -12,6 +13,7 @@ using namespace std;
 void displayOptions(char *);
 void UV();
 void viewClients();
+void patientCheck();
 
 Child child[4];
 Parent parent[4];
@@ -68,6 +70,9 @@ int main() {
             case '3':
                 cout << "Chose S" << endl;
                 break;
+            case '4':
+                patientBilling();
+                break;
             case 'E':
                 cout << "Have a good day!" << endl;
                 i = -1;
@@ -91,7 +96,8 @@ void displayOptions(char * c) {
     
     cout << "1 - Update/View Client Information" << endl;
     cout << "2 - Check In Client" << endl;
-    cout << "3 - Search Client" << endl << endl;
+    cout << "3 - Search Client" << endl;
+    cout << "4 - Base Bill Calculation" <<endl << endl;
     
     cout << "Type choice # or E to exit -> ";
     cin >> choice;
@@ -165,5 +171,27 @@ void viewClients() {
         }
         
     } while (i != -1);
+    
+ void patientBilling() {
+	
+	double checkIn, checkOut, totalTime;
+	double timeHold;
+	double wage = 12;
+	double bill;
+	
+	cout << "Enter patient check in time: (24 hour clock, no semicolon; 0000)" << endl;
+	cin >> checkIn;
+	cout << "Enter patient check out time: (24 hour clock, no semicolon; 0000)" << endl;
+	cin >> checkOut;
+	
+	totalTime = checkOut - checkIn;
+	
+	cout << "The total time for this session is: " << totalTime << endl;
+	
+	timeHold = totalTime/100;
+	bill = timeHold * wage;
+	
+	cout << "Your base bill is $" << bill << endl<<"Please consult the front desk for medication prices"<< endl;
+}
     
 }
