@@ -8,15 +8,17 @@
 
 using namespace std;
 
-// Function Prototypes
+//Function Prototypes
 void displayOptions(char *);
 void UV();
-void updateClients();
 void viewClients();
 void patientBilling();
+void HoursofChild();
+int billingMenu();
 
 Child child[4];
 Parent parent[4];
+HoursofChild hours[4];
 
 int main() {
     
@@ -72,7 +74,7 @@ int main() {
                 cout << "Chose 3" << endl;
                 break;
             case '4':
-                patientBilling();
+                HoursofChild();
                 break;
             case 'E':
                 cout << "Have a good day!" << endl;
@@ -273,3 +275,53 @@ void patientBilling() {
     
     cout << "Your base bill is $" << bill << endl << "Please consult the front desk for medication prices" << endl;
 }
+
+void HoursofChild() {
+	int i, shift;
+	int *p = &i;
+	double pay;
+	cout << "Enter the ID of the child: " << endl;
+	cin >> *p;
+	cout << "1. Morning shift" << endl << "2. Night shift" << endl<< ":";
+	cin >> shift;
+	hours[*p].setShift(shift);
+	cout << "Child Payment: " << endl;
+	cin >> pay;
+	hours[*p].setPay(pay);
+	do 
+	{
+		int choice = billingMenu();
+		int shift;
+		double pay;
+	switch (choice) {
+		case '1' :
+		cout << "1. Morning shift" << endl << "2. Night shift" << endl<< ":";
+		cin >> shift;
+		hours[*p].setShift(shift);
+		break;
+		case '2' :
+		cout << "Child Payment: " << endl;
+		cin >> pay;
+		hours[*p].setPay(pay);
+		break;
+		case '3' :
+		hours[*p].getShiftName();
+		break;
+		case '4' :
+		patientBilling();
+		i = -1;
+		break;
+		
+	} 
+		
+	} while (*p != -1);
+}
+	
+int billingMenu() {
+	int chose;
+	cout << "1. Set the shift" << endl << "2. Set the payment" << endl << "3. Check the shift" 
+	<< endl << "4. Calculate the payment" << endl << "-";
+	cin >> chose;
+	return chose;
+	
+}	
