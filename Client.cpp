@@ -89,9 +89,9 @@ HoursofChild::HoursofChild() {
        shift = 0;
        hourlyPay = 0.0;
    }
-HoursofChild::HoursofChild(int childShift, double childPayment) {
-    shift = childShift;
-    hourlyPay = childPayment;
+HoursofChild::HoursofChild(int s, double p) {
+    shift = s;
+    hourlyPay = p;
 }
 
 void HoursofChild::setShift (int s) {
