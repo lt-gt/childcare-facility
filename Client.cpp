@@ -99,12 +99,18 @@ void HoursOfChild::setShift (int s)
 
 void HoursOfChild::setPay(double p)
 {
-    hourlyPay = p
+    hourlyPay = p;
 }
 
 int HoursOfChild::getShiftNum() const
 {
-    return shift;
+    if (shift == 1)
+        return "$40";
+    else (shift == 2)
+        return "$48";
+    else 
+        return "Invalid";
+    
 }
 
 string HoursOfChild::getShiftName() const
@@ -122,4 +128,9 @@ double HoursOfChild::getPay() const
     return hourlyPay;
 }
 
+void HoursOfChild::displayInfo()
+{
+    cout << "Check-in/Check-out time:" << getShiftName() << endl;
+    cout << "Payment per day for the child: " << getShiftNum() << endl;
+}
       
