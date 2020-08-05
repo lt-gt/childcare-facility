@@ -61,14 +61,13 @@ private:
     double hourlyPay;
 
 public:
-   HoursOfChild(): Child()
-   {
-       shift = 0;
-       hourlyPay = 0.0;
-   }
-HoursOfChild(string childName, childID, int childShift, double childPayment) : Child(name, ID)
-{
-    shift = childShift;
-    hourlyPay = childPayment;
-}
+    HoursofChild();
+    HoursofChild(int, double);
+    void setShift(int);
+    void setPay(double);
+    int getShiftNum();
+    string getShiftName();
+    double getPay();
+    
+};
 #endif

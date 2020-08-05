@@ -1,7 +1,6 @@
 // main.cpp
 //
 
-#include <stdlib.h>
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -13,7 +12,7 @@ using namespace std;
 void displayOptions(char *);
 void UV();
 void viewClients();
-void patientCheck();
+void patientBilling();
 
 Child child[4];
 Parent parent[4];
@@ -172,26 +171,27 @@ void viewClients() {
         
     } while (i != -1);
     
- void patientBilling() {
-	
-	double checkIn, checkOut, totalTime;
-	double timeHold;
-	double wage = 12;
-	double bill;
-	
-	cout << "Enter patient check in time: (24 hour clock, no semicolon; 0000)" << endl;
-	cin >> checkIn;
-	cout << "Enter patient check out time: (24 hour clock, no semicolon; 0000)" << endl;
-	cin >> checkOut;
-	
-	totalTime = checkOut - checkIn;
-	
-	cout << "The total time for this session is: " << totalTime << endl;
-	
-	timeHold = totalTime/100;
-	bill = timeHold * wage;
-	
-	cout << "Your base bill is $" << bill << endl<<"Please consult the front desk for medication prices"<< endl;
-}
     
+}
+
+void patientBilling() {
+    
+    double checkIn, checkOut, totalTime;
+    double timeHold;
+    double wage = 12;
+    double bill;
+    
+    cout << "Enter patient check in time: (24 hour clock, no semicolon; 0000)" << endl;
+    cin >> checkIn;
+    cout << "Enter patient check out time: (24 hour clock, no semicolon; 0000)" << endl;
+    cin >> checkOut;
+    
+    totalTime = checkOut - checkIn;
+    
+    cout << "The total time for this session is: " << totalTime << endl;
+    
+    timeHold = totalTime/100;
+    bill = timeHold * wage;
+    
+    cout << "Your base bill is $" << bill << endl << "Please consult the front desk for medication prices" << endl;
 }

@@ -92,23 +92,30 @@ void Child::displayInfo() {
     
 }
 
-void HoursOfChild::setShift (int s)
-{
+
+//Hours of Child Class
+HoursofChild::HoursofChild() {
+       shift = 0;
+       hourlyPay = 0.0;
+   }
+HoursofChild::HoursofChild(int childShift, double childPayment) {
+    shift = childShift;
+    hourlyPay = childPayment;
+}
+
+void HoursofChild::setShift (int s) {
     shift = s;
 }
 
-void HoursOfChild::setPay(double p)
-{
-    hourlyPay = p
+void HoursofChild::setPay(double p) {
+    hourlyPay = p;
 }
 
-int HoursOfChild::getShiftNum() const
-{
+int HoursofChild::getShiftNum() {
     return shift;
 }
 
-string HoursOfChild::getShiftName() const
-{
+string HoursofChild::getShiftName() {
     if (shift == 1) //shift1: 8am-12pm
         return "Morning";
     else if (shift == 2) //shift2: 12pm-4om
@@ -117,8 +124,7 @@ string HoursOfChild::getShiftName() const
         return "Invalid";
 }
 
-double HoursOfChild::getPay() const
-{
+double HoursofChild::getPay() {
     return hourlyPay;
 }
 
