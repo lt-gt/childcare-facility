@@ -8,14 +8,11 @@ using namespace std;
 
 class Client {
 protected:
-    string ID;
-    double bill;
+    int ID;
 
 public:
-    void setID(string);
-    void setBill(double);
-    string getID();
-    double getBill();
+    void setID(int);
+    int getID();
     
 };
 

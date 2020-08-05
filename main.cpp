@@ -11,6 +11,7 @@ using namespace std;
 // Function Prototypes
 void displayOptions(char *);
 void UV();
+void updateClients();
 void viewClients();
 void patientBilling();
 
@@ -31,7 +32,6 @@ int main() {
     for (int index = 0; index <= 3; index++) {
         
         getline(clientFile, ID);
-        getline(clientFile, bill);
         getline(clientFile, name1);
         getline(clientFile, aid);
         getline(clientFile, name2);
@@ -39,10 +39,12 @@ int main() {
         getline(clientFile, allergy);
         getline(clientFile, blank);
         
-        parent[index].setID(ID); parent[index].setBill(stod(bill));
-        parent[index].setName(name1); parent[index].setFinAid(stoi(aid));
+        parent[index].setID(stoi(ID));
+        parent[index].setName(name1);
+        parent[index].setFinAid(stoi(aid));
         child[index].setName(name2);
-        child[index].setMedications(medication); child[index].setAllergies(allergy);
+        child[index].setMedications(medication);
+        child[index].setAllergies(allergy);
         
     }
     
@@ -64,10 +66,10 @@ int main() {
                 UV();
                 break;
             case '2':
-                cout << parent[0].getName() << endl << child[0].getName() << endl;
+                cout << "Chose 2";
                 break;
             case '3':
-                cout << "Chose S" << endl;
+                cout << "Chose 3" << endl;
                 break;
             case '4':
                 patientBilling();
@@ -118,7 +120,7 @@ void UV() {
     
     switch (toupper(choice)) {
             case 'U':
-                cout << "chose " << choice;
+            updateClients();
                 i = -1;
                 break;
             
@@ -140,36 +142,112 @@ void UV() {
 }
 
 void viewClients() {
-    string id;
+    int id;
     int i = 0;
-    cout << "Please type the identification # of the client you wish to view -> ";
-    cin >> id;
-    cout << endl;
     
     do {
-        if (id == "a1") {
-            parent[0].displayInfo();
-            child[0].displayInfo();
-            i = -1;
-        } else if (id == "a2") {
-            parent[1].displayInfo();
-            child[1].displayInfo();
-            i = -1;
-        } else if (id == "a3") {
-            parent[2].displayInfo();
-            child[2].displayInfo();
-            i = -1;
-        } else if (id == "a4") {
-            parent[3].displayInfo();
-            child[3].displayInfo();
-            i = -1;
-        } else if (id == "E" || id == "e") {
-            i = -1;
-        } else {
-            cout << "Invalid choice, IDs are case sensitive" << endl;
+        cout << "Please type the identification # -> ";
+        cin >> id;
+        cout << endl;
+        
+        switch (id) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                i = 1;
+                break;
+                
+            default:
+                cout << "Invalid Choice\n";
+                i = 0;
+                break;
         }
         
-    } while (i != -1);
+    } while (i != 1);
+    
+    parent[id - 1].displayInfo();
+    child[id - 1].displayInfo();
+    
+}
+
+void updateClients() {
+    int id;
+    int i = 0;
+    
+    do {
+        cout << "Please type the identification # -> ";
+        cin >> id;
+        cout << endl;
+        
+        switch (id) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                i = 1;
+                break;
+                
+            default:
+                cout << "Invalid Choice\n";
+                i = 0;
+                break;
+        }
+        
+    } while (i != 1);
+    
+    id -= 1;
+    
+    parent[id].displayInfo();
+    child[id].displayInfo();
+    
+    int c = 0;
+    i = 0;
+    string update;
+    
+    do {
+        cout << endl;
+        
+        cout << "1. Name" << endl
+        << "2. Child Name" << endl
+        << "3. Allergies" << endl
+        << "4. Medications" << endl;
+        
+        cout << endl << "What would you like to update -> ";
+        cin >> c;
+        cout << "Type new info -> ";
+        cin >> update;
+        
+        switch (c) {
+            case 1:
+                parent[id].setName(update);
+                i = 1;
+                break;
+                
+                case 2:
+                child[id].setName(update);
+                i = 1;
+                break;
+                
+                case 3:
+                child[id].setAllergies(update);
+                i = 1;
+                break;
+                
+                case 4:
+                child[id].setMedications(update);
+                i = 1;
+                break;
+                
+            default:
+                cout << "Invalid Choice";
+                i = 0;
+                break;
+                
+        }
+        
+    } while (i != 1);
+    
     
     
 }

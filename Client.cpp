@@ -5,22 +5,13 @@
 using namespace std;
 
 //Client Base Class
-void Client::setID(string ident) {
+void Client::setID(int ident) {
     ID = ident;
 }
 
-void Client::setBill(double b) {
-    bill = b;
-}
-
-string Client::getID() {
+int Client::getID() {
     
     return ID;
-}
-
-double Client::getBill() {
-    
-    return bill;
 }
 
 //Parent Derived Class

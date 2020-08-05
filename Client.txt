@@ -1,29 +1,25 @@
-a1
-0
+1
 Maggie
 0
 Ricky
 Albuterol
 None
 
-a2
-0
+2
 Jack
 1
 Ruby
 None
 Peanuts
 
-a3
-0
+3
 Aaliyah
 0
 Adam
 Ibuprofen
 Milk
 
-a4
-0
+4
 Lucas
 1
 Carla
